@@ -1,0 +1,33 @@
+[project]
+name = "bmypy"
+description = "Blunt mypy: try scanning files with dmypy as well as mypy in parallel."
+version = "0.0.1"
+dependencies = [
+    "mypy"
+]
+
+[project.scripts]
+bmypy = "bmypy:main"
+
+[tool.black]
+line-length = 120
+target-version = ["py38"]
+
+[tool.mypy]
+strict = true
+
+[tool.ruff]
+line-length = 120
+select = [
+    "E",    # pycodestyle
+    "W",    # pycodestyle
+    "F",    # pyflakes
+    "I",    # isort
+    "C4",   # flake8-comprehensions
+    "TID",  # flake8-tidy-imports
+    "UP",   # pyupgrade
+    "PL",   # pylint
+    "RUF005",   # ruff collection-literal-concatenation
+]
+fix = true
+fixable = ["I001", "F401", "UP035"]
